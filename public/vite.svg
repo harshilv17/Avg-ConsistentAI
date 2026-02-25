@@ -1,20 +1,54 @@
 <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
 
   <style>
-    .graph-line { stroke: #8929ff; stroke-width: 6; fill: none; }
-    @media (prefers-color-scheme: dark) {
-      .graph-line { stroke: #343a40; }
+    .bg {
+      fill: #fffaf2; /* very light cream */
+    }
+
+    .graph-line {
+      stroke: #ff7a00;
+      stroke-width: 4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .grid-line {
+      stroke: #f1e8dc;
+      stroke-width: 1;
+    }
+
+    .axis {
+      stroke: #d8cfc3;
+      stroke-width: 2;
     }
   </style>
 
   <!-- Background -->
-  <rect width="500" height="500" fill="transparent"></rect>
+  <rect width="500" height="500" class="bg" rx="20"></rect>
 
   <!-- Grid -->
-  <line x1="50" y1="450" x2="450" y2="450" stroke="#ccc" stroke-width="1"></line>
-  <line x1="50" y1="50" x2="50" y2="450" stroke="#ccc" stroke-width="1"></line>
+  <g>
+    <line class="grid-line" x1="60" y1="120" x2="460" y2="120"></line>
+    <line class="grid-line" x1="60" y1="200" x2="460" y2="200"></line>
+    <line class="grid-line" x1="60" y1="280" x2="460" y2="280"></line>
+    <line class="grid-line" x1="60" y1="360" x2="460" y2="360"></line>
 
-  <!-- Graph Line -->
-  <polyline class="graph-line" points="50,400 120,350 200,370 280,250 360,300 440,180"></polyline>
+    <line class="grid-line" x1="140" y1="60" x2="140" y2="440"></line>
+    <line class="grid-line" x1="220" y1="60" x2="220" y2="440"></line>
+    <line class="grid-line" x1="300" y1="60" x2="300" y2="440"></line>
+    <line class="grid-line" x1="380" y1="60" x2="380" y2="440"></line>
+  </g>
+
+  <!-- Axes -->
+  <line class="axis" x1="60" y1="440" x2="460" y2="440"></line>
+  <line class="axis" x1="60" y1="60" x2="60" y2="440"></line>
+
+  <!-- Fluctuating Orange Curve -->
+  <path class="graph-line" d="M60 380
+       C100 320, 140 350, 180 300
+       S240 240, 280 290
+       S340 340, 380 210
+       S420 260, 460 180"></path>
 
 </svg>

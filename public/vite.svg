@@ -1,0 +1,20 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .graph-line { stroke: #8929ff; stroke-width: 6; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .graph-line { stroke: #343a40; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="transparent"></rect>
+
+  <!-- Grid -->
+  <line x1="50" y1="450" x2="450" y2="450" stroke="#ccc" stroke-width="1"></line>
+  <line x1="50" y1="50" x2="50" y2="450" stroke="#ccc" stroke-width="1"></line>
+
+  <!-- Graph Line -->
+  <polyline class="graph-line" points="50,400 120,350 200,370 280,250 360,300 440,180"></polyline>
+
+</svg>

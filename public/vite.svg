@@ -7,7 +7,7 @@
 
     .graph-line {
       stroke: #ff7a00;
-      stroke-width: 4;
+      stroke-width: 14; /* Much thicker */
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -25,7 +25,7 @@
   </style>
 
   <!-- Background -->
-  <rect width="500" height="500" class="bg" rx="20"></rect>
+  <rect width="500" height="500" class="bg" rx="24"></rect>
 
   <!-- Grid -->
   <g>

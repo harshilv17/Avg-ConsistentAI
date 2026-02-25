@@ -176,14 +176,37 @@ export default function FinancialAdvisor() {
         .markdown-content ul, .markdown-content ol { margin-left: 1.4em; margin-bottom: .8em; padding-left: 0.5em; }
         .markdown-content li { margin-bottom: .3em; }
         .markdown-content strong { font-weight: 700; color: ${C.ink}; }
+        
+        /* Responsive Layout Classes */
+        .fa-nav { padding: 0 40px; }
+        .fa-nav-links { display: flex; gap: 32px; list-style: none; }
+        .fa-layout-grid {
+          display: grid; grid-template-columns: 310px 1fr; flex: 1;
+          max-width: 1280px; margin: 0 auto; width: 100%;
+          padding: 40px 40px; gap: 28px;
+        }
+        .fa-hero-title { font-size: 34px; }
+        .fa-chat-container { min-height: 600px; }
+        
+        @media (max-width: 900px) {
+          .fa-nav { padding: 0 16px !important; }
+          .fa-nav-links { display: none !important; }
+          .fa-layout-grid {
+            grid-template-columns: 1fr;
+            padding: 20px 16px;
+            gap: 24px;
+          }
+          .fa-hero-title { font-size: 28px !important; }
+          .fa-chat-container { min-height: 500px !important; }
+        }
       `}</style>
 
       <div style={{ fontFamily:"'DM Sans',sans-serif", background:C.bg, minHeight:"100vh", display:"flex", flexDirection:"column" }}>
 
         {/* ── NAV ───────────────────────────────────────────────────────────── */}
-        <nav style={{
+        <nav className="fa-nav" style={{
           display:"flex", alignItems:"center", justifyContent:"space-between",
-          padding:"0 40px", height:64,
+          height:64,
           background:"rgba(250,249,247,.88)", backdropFilter:"blur(14px)",
           borderBottom:`1px solid ${C.border}`, position:"sticky", top:0, zIndex:100,
         }}>
@@ -196,7 +219,7 @@ export default function FinancialAdvisor() {
               FinAdvisor AI
             </span>
           </div>
-          <ul style={{ display:"flex", gap:32, listStyle:"none" }}>
+          <ul className="fa-nav-links">
             {["Home","Portfolio","Markets","About"].map(l => (
               <li key={l} className="fa-link" style={{ fontSize:14, fontWeight:500 }}>{l}</li>
             ))}
@@ -211,11 +234,7 @@ export default function FinancialAdvisor() {
         </nav>
 
         {/* ── LAYOUT ────────────────────────────────────────────────────────── */}
-        <div style={{
-          display:"grid", gridTemplateColumns:"310px 1fr", flex:1,
-          maxWidth:1280, margin:"0 auto", width:"100%",
-          padding:"40px 40px", gap:28,
-        }}>
+        <div className="fa-layout-grid">
 
           {/* LEFT */}
           <aside style={{ display:"flex", flexDirection:"column", gap:28 }}>
@@ -230,7 +249,7 @@ export default function FinancialAdvisor() {
               <p style={{ fontSize:11, fontWeight:700, letterSpacing:".15em", color:"#9c7d4e", textTransform:"uppercase", marginBottom:12, position:"relative", zIndex:1 }}>
                 AI-Powered Advisory
               </p>
-              <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:34, lineHeight:1.15, color:C.ink, fontWeight:700, marginBottom:14, position:"relative", zIndex:1 }}>
+              <h1 className="fa-hero-title" style={{ fontFamily:"'Playfair Display',serif", lineHeight:1.15, color:C.ink, fontWeight:700, marginBottom:14, position:"relative", zIndex:1 }}>
                 Building{" "}
                 <span style={{ color:C.accent, fontStyle:"italic" }}>Financial Clarity</span>{" "}
                 for everyone
@@ -286,10 +305,10 @@ export default function FinancialAdvisor() {
           </aside>
 
           {/* RIGHT — CHAT */}
-          <div style={{
+          <div className="fa-chat-container" style={{
             background:C.white, border:`1px solid ${C.border}`, borderRadius:24,
             display:"flex", flexDirection:"column", overflow:"hidden",
-            boxShadow:"0 2px 24px rgba(0,0,0,.04)", minHeight:600,
+            boxShadow:"0 2px 24px rgba(0,0,0,.04)",
           }}>
             {/* Chat header */}
             <div style={{
